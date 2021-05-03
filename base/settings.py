@@ -129,8 +129,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #permissions
-REST_FRAMEWORK = {
-    'DEFAULT_PREMISSIONS_CLASSES' : [
-        'rest_framework.permissions.AllowAny'
-    ]
-}
+
+REST_FRAMEWORK={
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',# new
+        ]
+    }
