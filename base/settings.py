@@ -42,13 +42,13 @@ INSTALLED_APPS = [
     'post',
     #third_party
     'rest_framework',
+    'rest_framework_swagger',
     'rest_framework.authtoken',
     'rest_auth',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_auth.registration'
-
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+             'libraries': {  
+                    'staticfiles': 'django.templatetags.static',
+                 },
         },
     },
 ]
@@ -140,10 +143,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK={
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',# new
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES' : [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         ],
+        'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
     }
+
+#swagger log in/out
+SWAGGER_SETTINGS = {
+    'LOGIN_URL' : 'rest_framework:login',
+    'LOGUT_URL' : 'rest_framework:logout',
+}

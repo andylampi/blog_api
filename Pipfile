@@ -9,6 +9,9 @@ djangorestframework = "*"
 django-allauth = "*"
 django-rest-framework = "*"
 django-rest-auth = "*"
+coreapi = "*"
+pyyaml = "*"
+django-rest-swagger = "===2.2.0"
 
 [dev-packages]
 
