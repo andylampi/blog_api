@@ -152,6 +152,8 @@ REST_FRAMEWORK={
         'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
     }
 
+
+SITE_ID = 1
 #swagger log in/out
 SWAGGER_SETTINGS = {
     'LOGIN_URL' : 'rest_framework:login',
